@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.MemberDAO-mapper">
+
+	<!-- 회원 등록 -->
+	<insert id="joinMember" parameterType="MemberVO">
+		INSERT INTO member( id,
+		pw, tel, nickname, gender, birth, region, cdate, pic, fname, fsize,
+		moneyrecommend)
+		VALUES(#{id},#{pw},#{tel},#{nickname},#{gender},#{birth}, #{region},
+		systimestamp,
+		#{pic,jdbcType=BLOB},#{fname,jdbcType=VARCHAR},#{fsize,jdbcType=VARCHAR},
+		#{moneyrecommend})
+	</insert>
+
+	<!-- 아이디 중복체크 -->
+	<select id="idCheck" resultType="int">
+		SELECT count(*)
+		FROM member
+		WHERE id = #{id}
+	</select>
+
+	<!-- 회원 로그인 -->
+	<select id="loginMember" parameterType="MemberVO"
+		resultType="MemberVO">
+		select id, pw, tel, nickname, gender, birth, region, cdate, pic, fname,
+		fsize, moneyrecommend
+		from member
+		where id = #{id}
+		and pw = #{pw}
+	</select>
+
+	<!-- 회원 전체 조회 -->
+	<select id="selectAllMember" resultType="MemberVO">
+		select id, pw, tel,
+		nickname, gender, birth, region, cdate, udate, pic, fname, fsize,
+		moneyrecommend
+		from member
+	</select>
+	<!-- 회원 개별 조회 -->
+	<select id="selectMember" parameterType="String"
+		resultType="MemberVO"> <!-- 파라미터타입 생략가능 -->
+		select id, pw, tel, nickname, gender, birth, region, cdate, udate,
+		pic, fname, fsize, moneyrecommend
+		from member
+		where id = #{id}
+	</select>
+
+</mapper>
