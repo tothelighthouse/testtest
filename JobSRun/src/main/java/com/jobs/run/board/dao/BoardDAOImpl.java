@@ -35,7 +35,10 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public List<BoardVO> list() {
 		logger.info("BoardDAOImplXML 실행!!!");
-		return sqlSession.selectList("mappers.BoardDAO-mapper.list");
+		List<BoardVO> list = sqlSession.selectList("mappers.BoardDAO-mapper.list");
+		System.out.println("DAOlist.toString()==> " + list.toString());
+		return list;
+
 	}
 
 	@Override

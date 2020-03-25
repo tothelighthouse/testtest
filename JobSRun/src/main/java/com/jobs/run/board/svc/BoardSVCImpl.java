@@ -35,8 +35,10 @@ public class BoardSVCImpl implements BoardSVC {
 	}
 	@Override
 	public List<BoardVO> list() {
-		logger.info("boardDAO.list() :" + boardDAO.list().toString());
-		return boardDAO.list();
+		logger.info("boardSVC.list() :" + boardDAO.list().toString());
+		List<BoardVO> list = boardDAO.list();
+		System.out.println("list.toString()==> " + list.toString());
+		return list;
 	}
 
 	

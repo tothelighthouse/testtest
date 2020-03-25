@@ -114,6 +114,7 @@ public class BoardController {
 	//목록보기
 	@GetMapping("/list")
 	public String list(Model model) {
+		logger.info("listAll 실행");
 		List<BoardVO> list = boardSVC.list();
 		for(BoardVO item : list) {
 			String[] sdateTime = item.splitDatetime();
