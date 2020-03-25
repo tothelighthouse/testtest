@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.BoardDAO-mapper">
+	<!-- 게시판 카테고리 읽어오기 -->
+	<select id="getCategory" resultType="BoardCategoryVO">
+		select bcid, bcname from boardcategory
+	</select>
+
+
+
+
+	<!-- //게시글 작성 -->
+	<insert id="write" parameterType="BoardVO">
+		INSERT INTO board (
+		bnum,
+		bbcid,
+		blocation,
+		bid,
+		bnickname,
+		bcontent,
+
+		sdatetime,
+		job,
+		duration,
+		payment,
+
+		btitle
+		) VALUES (
+		BOARD_BNUM_SEQ.nextval,
+		#{boardCategoryVO.bcid},
+		#{blocation},
+		#{bid},
+		#{bnickname},
+		#{bcontent},
+		#{sdatetime},
+		<!-- to_timestamp(#{startdate}, 'YYYY-MM-DD HH24:MI:SS'), -->
+		#{job},
+		#{duration},
+		#{payment},
+
+		#{btitle}
+		)
+		<selectKey keyProperty="bnum" resultType="long"
+			order="AFTER">
+			select board_bnum_seq.currval from dual
+		</selectKey>
+
+	</insert>
+
+
+	<select id="list" resultType="BoardVO">
+		select
+		bnum,
+		bbcid,
+		blocation,
+		bid,
+		bnickname,
+
+		bcontent,
+		bcdate,
+		budate,
+		sdatetime,
+		job,
+		duration,
+		payment,
+		bhit,
+		btitle
+		from board
+		order by bcdate desc
+	</select>
+
+</mapper>
