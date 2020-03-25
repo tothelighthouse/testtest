@@ -8,14 +8,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/spring/root-context.xml</param-value>
 	</context-param>
-	<!-- message-context.xml 을 이용하겠다! -->
-	<context-param> 
-		<param-name>contextConfigLocation</param-name>
-		<param-value> 
-			/WEB-INF/spring/root-context.xml 
-			/WEB-INF/spring/message-context.xml 
-		</param-value>
-	</context-param>
+
 	
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
 	<listener>
