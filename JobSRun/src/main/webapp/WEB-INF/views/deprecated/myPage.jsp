@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
- 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
     
 <!DOCTYPE html>
 <html>
@@ -10,71 +10,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="<c:url value='/resources/css/list.css'/>">
+  <link rel="stylesheet" href="<c:url value='/resources/css/myPage.css'/>">
   <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
-  <script src="<c:url value='/resources/js/list.js'/>"></script>
-  <script src="<c:url value='/resources/js/common.js'/>"></script>
-  
+
 </head>
 <body>
   <div class="container">
     <div class="header">
       <a href="<c:url value='/'/>"><img src="<c:url value='/resources/img/잡스런작은로고사람.png'/>"></a>
       <div><a href="<c:url value='/'/>">JOB'S RUN</a></div>
-      <div><a href="<c:url value='/member/loginForm'/>">로그인</a></div>
+      <div><a href="">로그인</a></div>
       <div><a href="<c:url value='/board/list'/>">의뢰자 게시판</a></div>
       <div><a href="<c:url value='/board/list'/>">공급자 게시판</a></div>
-      <div><a href="<c:url value='/member/joinForm'/>">회원 가입</a></div>
-      <div><a href="">고객센터</a></div>
+      <div><a href="<c:url value='/member/joinForm'/>">내역</a></div>
+      <div><a href="<c:url value=''/>">고객센터</a></div>
     </div>
-
-    <div class="list-dg">
-      <div class="listTitle">의뢰자 게시판</div>
-      <div class="th">
-        <div>ID</div>
-        <div>제목</div>
-        <div>
-          <div>시작날짜</div>
-          <div>시작시간</div>
-          <div>위치</div>
-          <div>일종류</div>
-          <div>시간</div>
-          <div>보수</div>
+    <div class="body">
+      <div class="container-dg">
+        <div class="point-dg">
+            <div>내 포인트</div>
+            <div>6,000 P</div>
+        </div>
+        <div class="contract-dg">
+          <div class="ingCont">승인 요청받은 의뢰 리스트(해결사가 승인을 기다리는 중)</div>       
+          <div class="completeCont">승인한 의뢰 리스트(내가(의뢰자인) 승인한 의뢰 리스트)</div>
+          <div class="ingCont">제의 요청 받은 의뢰 리스트(의뢰자가 요청을 하고 내가 해결사로서 승인해야 할 계약)</div>       
+          <div class="completeCont">제의 요청 완료  리스트(내가 해결사로서 승인한 계약)</div>
         </div>
       </div>
-      <div class="tbody">
-        <c:forEach var="rec" items="${list}">
-          <div class="tdata">
-            <div>${rec.bid }</div>
-            <a href="<c:url value='${pageContext.request.contextPath }board/view/${rec.bnum} }'/>">
-              <div>${rec.btitle }</div>
-            </a>
-            <div>
-              <div>${rec.sdate }</div>
-              <div>${rec.stime }</div>
-              <div>${rec.blocation }</div>
-              <div>${rec.job }</div>
-              <div>${rec.duration }</div>
-              <div>${rec.payment }</div>
-            </div>
-            <input type="button" data-bnum=${rec.bnum } value="의뢰맡기">
-        </div>
-        </c:forEach>
-      </div>
-      <div class="listMenu">
-        <a href="<c:url value='/board/writeForm'/>"><input type="button" value="글쓰기"></a>
-      </div>
-      <div class="paging">
-        <a href="">이전</a>
-        <a href="">1</a>
-        <a href="">2</a>
-        <a href="">3</a>
-        <a href="">4</a>
-        <a href="">5</a>
-        <a href="">6</a>
-        <a href="">다음</a>
-      </div>
+    
     </div>
     <div class="footer">
       <div>

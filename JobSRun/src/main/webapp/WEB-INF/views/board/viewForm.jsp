@@ -10,7 +10,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="<c:url value='/resources/css/writeForm.css'/>">
+  <link rel="stylesheet" href="<c:url value='/resources/css/viewForm.css'/>">
   <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
 
@@ -38,7 +38,9 @@
         <form:label path="job">업무구분</form:label>
         <form:select path="job">
           <form:option value="">선택</form:option>>
-          <form:options items="${job}" itemValue="code" itemLabel="label"/>
+          <form:options items="${job}" itemValue="code" itemLabel="label"
+                        <c:out value="${rec.job == job ? 'selected' :''}"/>
+          />
         </form:select>
         <form:label path="duration">시간</form:label>
         <form:select path="duration">
@@ -50,10 +52,10 @@
           <option value="">선택</option>
           <form:options items="${payment }" itemValue="code" itemLabel="label"/>
         </form:select>
-        <form:label path="sdate">시작날짜</form:label>
-        <form:input type="date" path="sdate" />
-        <form:label path="stime">시작시간</form:label>
-        <form:input type="time" path="stime" />
+        <form:label path="startdate">시작날짜</form:label>
+        <form:input type="date" path="startdate" />
+        <form:label path="starttime">시작시간</form:label>
+        <form:input type="time" path="starttime" />
         <label for="blocation">지역</label>
         <select name="blocation" id="blocation">
           <option value="">선택</option>
