@@ -73,12 +73,12 @@ a {
 
 .list-dg .th{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 0.5fr repeat(4, 1fr);
   justify-items: center;
   align-items: center;
   border-bottom: 1px solid;
 }
-.list-dg .th > div:nth-child(3){
+.list-dg .th > div:nth-child(4){
 	display: grid;
 	grid-template: repeat(2, auto) / repeat(2, 1fr);
 	justify-items: center;
@@ -93,11 +93,11 @@ a {
 
 .list-dg .tdata{
   	display: grid;
-	grid-template-columns: repeat(4, 1fr);  
+	grid-template-columns: 0.5fr repeat(4, 1fr);  
 	justify-items: center;
   	align-items: center;
 }
-.list-dg .tbody .tdata > div:nth-child(3){
+.list-dg .tbody .tdata > div:nth-child(4){
 	display: grid;
 	grid-template: repeat(2, auto) / repeat(2, 1fr);
 	justify-items: center;

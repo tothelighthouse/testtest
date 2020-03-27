@@ -68,5 +68,41 @@
 		from board
 		order by bcdate desc
 	</select>
+	<!--  게시글에 대한 지원과 지원철회 -->
+	<update id="application"
+			parameterType="BoardVO">
+
+	update board
+	   set bstatus = decode(bstatus, 1, 0, 1),
+		   bapplication = #{bapplication}
+	 where bnum = #{bnum}
+	
+	</update>
+	
+	
+	
 
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

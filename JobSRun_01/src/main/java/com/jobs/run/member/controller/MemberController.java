@@ -1,10 +1,13 @@
 package com.jobs.run.member.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -55,7 +58,10 @@ public class MemberController {
 
 	// 회원 등록
 	@RequestMapping("/join")
-	public String memberJoin(@Valid @ModelAttribute("mvo") MemberVO memberVO, BindingResult result, Model model) {
+	public String memberJoin(@Valid @ModelAttribute("mvo") MemberVO memberVO,
+			BindingResult result,
+			Model model,
+			HttpServletResponse response) throws IOException {
 		logger.info(memberVO.toString());
 
 		// 유효성 오류체크 중 오류가 발견되면 회원 가입 페이지로 이동
@@ -66,7 +72,11 @@ public class MemberController {
 		// 3)회원 가입처리
 		int cnt = memberSVC.joinMember(memberVO);
 		if (cnt == 1) {
-			return "member/loginForm";
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+//			out.println("<script>alert('계정이 등록 되었습니다'); location.href='/run/loginForm';</script>");
+			out.println("<script>alert('계정이 등록 되었습니다')</script>");
+			return "redirect:/loginForm";
 		} else {
 			return "redirect:/";
 		}
@@ -101,6 +111,11 @@ public class MemberController {
 	public String modifyForm(Model model) {
 		MemberVO memberVO = new MemberVO();
 		model.addAttribute("memberVO", memberVO);
+		return "member/modifyForm";
+	}
+
+	@GetMapping("/myPage")
+	public String myPage() {
 		return "member/modifyForm";
 	}
 

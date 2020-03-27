@@ -40,6 +40,11 @@ public class BoardSVCImpl implements BoardSVC {
 		System.out.println("list.toString()==> " + list.toString());
 		return list;
 	}
+	//게시글에 대한 지원과 지원철회
+	@Override
+	public int application(BoardVO boardVO) {
+		return boardDAO.application(boardVO);
+	}
 
 	
 }

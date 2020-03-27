@@ -4,22 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jobs.run.board.svc.BoardSVC;
 import com.jobs.run.board.vo.BoardCategoryVO;
 import com.jobs.run.board.vo.BoardVO;
 import com.jobs.run.common.Code;
 import com.jobs.run.common.IntCode;
+import com.jobs.run.member.vo.MemberVO;
 
 @Controller
 @RequestMapping("/board")
@@ -127,4 +134,49 @@ public class BoardController {
 		model.addAttribute("list", list);
 		return "board/list";
 	}
+	//게시글에 대한 지원과 지원철회
+	@ResponseBody
+	@PostMapping(value = "/application", produces = "application/json")
+	public ResponseEntity<String> application(
+			@RequestBody BoardVO boardVO,
+			HttpSession session) {
+		ResponseEntity<String> res = null;
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		logger.info(memberVO.toString());
+		boardVO.setBapplication(memberVO.getId());
+		logger.info(boardVO.toString());
+		int cnt = boardSVC.application(boardVO);
+		if(cnt == 1) {
+			res = new ResponseEntity<String>("success", HttpStatus.OK);
+		}else {
+			res = new ResponseEntity<String>("fail", HttpStatus.OK);
+		}
+		return res;
+	}
+	
+	//지원에 대한 승낙과 승낙철회
+	@ResponseBody
+	@GetMapping(value = "member/permission")
+	public ResponseEntity<String> permission(@RequestParam("bnum") String bnum) {
+		ResponseEntity<String> res = null;
+		
+		return res;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

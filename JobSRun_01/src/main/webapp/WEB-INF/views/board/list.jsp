@@ -32,6 +32,7 @@
     <div class="list-dg">
       <div class="listTitle">의뢰자 게시판</div>
       <div class="th">
+        <div>글번호</div>
         <div>ID</div>
         <div>제목</div>
         <div>
@@ -46,6 +47,7 @@
       <div class="tbody">
         <c:forEach var="rec" items="${list }">
           <div class="tdata">
+            <div>${rec.bnum }</div>
             <div>${rec.bid }</div>
             <a href="<c:url value='${pageContext.request.contextPath }board/view/${rec.bnum} }'/>">
               <div>${rec.btitle }</div>

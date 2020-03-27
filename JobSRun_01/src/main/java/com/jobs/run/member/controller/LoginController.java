@@ -55,7 +55,7 @@ public class LoginController {
 			// 2-1) 비밀번호가 일치하는경우
 			if (pw.equals(memberVO.getPw())) {
 				session.setAttribute("member", memberVO);
-				return "redirect:/" + reqURI;
+				return "redirect:/";
 
 			} else {
 				// 2-2) 비밀번호가 다른경우

@@ -64,7 +64,8 @@ public class BoardVO {
 //	private String duration; 	//TIME	VARCHAR2(30 BYTE)
 //	private String payment; 	//PAYMENT	VARCHAR2(30 BYTE)	@NotNull
 	private int bhit; // BHIT NOT NULL NUMBER(5)
-
+	private int bstatus; //BSTATUS NUMBER(10)
+	private String bapplication;//BAPPLICATION VARCHAR(100 BYTE)
 	// 첨부파일
 	private List<MultipartFile> files;
 

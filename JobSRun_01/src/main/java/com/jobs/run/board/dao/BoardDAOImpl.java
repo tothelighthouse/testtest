@@ -40,7 +40,7 @@ public class BoardDAOImpl implements BoardDAO {
 		return list;
 
 	}
-
+	//글쓰기
 	@Override
 	public int write(BoardVO boardVO) {
 //		String startdate = boardVO.getStartdate();
@@ -55,6 +55,30 @@ public class BoardDAOImpl implements BoardDAO {
 		
 		return sqlSession.insert("mappers.BoardDAO-mapper.write",boardVO);
 	}
+
+	@Override
+	public int application(BoardVO boardVO) {
+		return sqlSession.update("mappers.BoardDAO-mapper.application",boardVO);
+	}
+	
+	
+	
 	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

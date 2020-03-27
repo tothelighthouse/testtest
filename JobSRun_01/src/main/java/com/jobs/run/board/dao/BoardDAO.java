@@ -17,5 +17,7 @@ public interface BoardDAO {
 	//게시글 전체 불러오기
 	List<BoardVO> list();
 	
+	//게시글에 대한 지원과 지원철회
+	int application(BoardVO boardVO);
 	
 }

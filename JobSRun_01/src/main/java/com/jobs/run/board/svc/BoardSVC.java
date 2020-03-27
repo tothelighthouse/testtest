@@ -17,4 +17,7 @@ public interface BoardSVC {
 	
 	//전체 글 읽어오기
 	List<BoardVO> list();
+	
+	//게시글에 대한 지원과 지원철회
+	int application(BoardVO boardVO);
 }
