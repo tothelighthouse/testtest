@@ -41,9 +41,24 @@ a {
 	font-size: 16px;
 }
 
+.smallLogo{
+  border: 1px solid;
+}
+
+.smallLogo > img{
+  vertical-align: bottom;
+  /* margin: 5%; */
+  box-sizing: border-box;
+  
+}
+
+.header > div:nth-child(2){
+  font-size: 40px;
+  color: aqua;
+}
 .writeForm {
 	display: grid;
-	grid-template-rows: auto auto 1fr auto auto auto;
+	grid-template-rows: auto auto 1fr auto auto auto auto;
 	align-items: center;
 	gap: 10px;
 }
@@ -70,24 +85,30 @@ a {
 	gap: 40px;
 }
 
-.title {
+.btitle {
 	display: grid;
 	grid-template-columns: 1fr 5fr;
 	border-bottom: 1px solid;
 }
-.title div:first-child {
+.btitle div:first-child {
 	display: grid;
 	justify-content: center;
 }
+.bid, .bnickname, .category{	
+	display: grid;
+	grid-template-columns: 1fr 5fr;
+	border-bottom: 1px solid;
+}
 
-.content {
+
+.bcontent {
 	border-bottom: 1px solid;
 	border-top: 1px solid;
 	display: grid;
 	grid-template-columns: 1fr 5fr;
 }
 
-.content div:first-child {
+.bcontent div:first-child {
 	display: grid;
 	justify-content: center;
 }
@@ -98,21 +119,44 @@ a {
 	overflow: visible;
 	text-overflow: ellipsis;
 }
-
-.attachment {
+.categoryItems{
 	display: grid;
-	grid-template-columns: 1fr 4.5fr 0.5fr;
-	justify-items: center;
-	border-bottom: 1px solid;
-	border-top: 1px solid;
+	grid-template-rows: repeat(3, auto);
+	row-gap: 10px;
+	column-gap: 10px;
 }
-.attachment div:nth-child(2) {
-	justify-self: stretch;
-	border: 1px solid;
+.categoryItems > div{
+	display: grid;
+	grid-template-rows: repeat(3, auto);
+	column-gap: 10px;
 }
-.attachment > input {
-	width: 100%;
+label > span{
+	color: red;
 }
+.categoryItems > div:nth-child(-n + 2) > div {display: grid;grid-template-columns: 1fr 4fr;}
+.btnContainer{
+	display:grid;
+	grid-auto-flow: column;
+	
+}
+.categoryItems > div:last-child{display:grid;grid-template: repeat(2, auto) / 1fr;}
+.categoryItems > div:last-child > div:last-child{border:1px dotted red;width: 100%;height:200px}
+.attachment {
+	display: grid;	grid-template-columns: 1fr 4.5fr 0.5fr;	justify-items: center;
+	border-bottom: 1px solid;border-top: 1px solid;
+}
+.attachment div:nth-child(2) {justify-self: stretch;border: 1px solid;}
+.attachment > input {width: 100%;}
+
+.picSection{display:grd;grid-template-columns:1fr 5fr;	border-bottom: 1px solid;}
+
+
+.picContainer{box-sizing:border-box;width:100%;height:150px;padding:10px;border:1px dotted red;display: grid;
+grid-auto-flow: column;grid-auto-columns:20%;justify-content:flex-start;column-gap:10px;}
+.picItem{height: 60px;width: 60px;border:1px dotted;}
+.pic > div{display:grid;grid-template-rows: repeat(2, auto);}
+.picTitle{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+
 
 .writeMenu {
 	display: grid;

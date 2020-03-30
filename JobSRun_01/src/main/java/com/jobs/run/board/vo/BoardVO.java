@@ -67,6 +67,6 @@ public class BoardVO {
 	private int bstatus; //BSTATUS NUMBER(10)
 	private String bapplication;//BAPPLICATION VARCHAR(100 BYTE)
 	// 첨부파일
-	private List<MultipartFile> files;
+	private List<MultipartFile> bfiles;
 
 }

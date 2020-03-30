@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.jobs.run.board.vo.BoardCategoryVO;
+import com.jobs.run.board.vo.BoardFileVO;
 import com.jobs.run.board.vo.BoardVO;
 
 @Repository
@@ -36,24 +37,19 @@ public class BoardDAOImpl implements BoardDAO {
 	public List<BoardVO> list() {
 		logger.info("BoardDAOImpl 실행!!!");
 		List<BoardVO> list = sqlSession.selectList("mappers.BoardDAO-mapper.list");
-		System.out.println("DAOlist.toString()==> " + list.toString());
+//		System.out.println("DAOlist.toString()==> " + list.toString());
 		return list;
 
 	}
-	//글쓰기
+	//게시글 작성
 	@Override
 	public int write(BoardVO boardVO) {
-//		String startdate = boardVO.getStartdate();
-//		logger.info("startdate : "+startdate);
-//		String starttime = boardVO.getStarttime();
-//		logger.info("starttime : "+starttime);
-//		String datetime = startdate + " " + starttime + ":00";
-//		logger.info("datetime : "+datetime);
-//		Timestamp dt = java.sql.Timestamp.valueOf(datetime);
-//		logger.info(String.valueOf(dt));
-//		boardVO.setStime(dt);
-		
 		return sqlSession.insert("mappers.BoardDAO-mapper.write",boardVO);
+	}
+	//첨부파일 저장
+	@Override
+	public int fileWrite(BoardFileVO boardFileVO) {
+		return sqlSession.insert("mappers.BoardDAO-mapper.fileWrite",boardFileVO);
 	}
 
 	@Override

@@ -123,7 +123,7 @@ public class BoardController {
 	public String list(Model model) {
 		logger.info("listAll 실행");
 		List<BoardVO> list = boardSVC.list();
-		logger.info(list.toString());
+//		logger.info(list.toString());
 		for(BoardVO item : list) {
 			String[] sdateTime = item.splitDatetime();
 			String sdate = sdateTime[0];

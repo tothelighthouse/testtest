@@ -17,14 +17,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="header">
-      <div><a href="<c:url value='/'/>">JOB'S RUN</a></div>
-      <div><a href="">로그인</a></div>
-      <div><a href="<c:url value='/board/list'/>">의뢰자 게시판</a></div>
-      <div><a href="<c:url value='/board/list'/>">공급자 게시판</a></div>
-      <div><a href="">회원 가입</a></div>
-      <div><a href="">고객센터</a></div>
-    </div>
+   	<%@ include file="../main/header.jsp"%>
 
     <%-- <form:form action="${pageContext.request.contextPath }/board/write" --%>
     <form:form action="${pageContext.request.contextPath }/board/write"

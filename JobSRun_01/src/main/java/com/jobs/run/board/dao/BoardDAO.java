@@ -3,13 +3,15 @@ package com.jobs.run.board.dao;
 import java.util.List;
 
 import com.jobs.run.board.vo.BoardCategoryVO;
+import com.jobs.run.board.vo.BoardFileVO;
 import com.jobs.run.board.vo.BoardVO;
 
 public interface BoardDAO {
 	List<BoardCategoryVO> getCategory();
 	
-	//의뢰글 작성
+	//게시글작성
 	int write(BoardVO boardVO);
+	int fileWrite(BoardFileVO boardFileVO);
 	
 	//게시글 보기
 	BoardVO view(String bnum);

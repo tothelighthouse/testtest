@@ -19,15 +19,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="header">
-      <a href="<c:url value='/'/>"><img src="<c:url value='/resources/img/잡스런작은로고사람.png'/>"></a>
-      <div><a href="<c:url value='/'/>">JOB'S RUN</a></div>
-      <div><a href="<c:url value='/loginForm'/>">로그인</a></div>
-      <div><a href="<c:url value='/board/list'/>">의뢰자 게시판</a></div>
-      <div><a href="<c:url value='/board/list'/>">공급자 게시판</a></div>
-      <div><a href="<c:url value='/member/joinForm'/>">회원 가입</a></div>
-      <div><a href="">고객센터</a></div>
-    </div>
+    <%@ include file="../main/header.jsp"%>
 
     <div class="list-dg">
       <div class="listTitle">의뢰자 게시판</div>

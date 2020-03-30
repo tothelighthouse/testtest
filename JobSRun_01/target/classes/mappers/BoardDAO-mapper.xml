@@ -46,6 +46,26 @@
 		</selectKey>
 
 	</insert>
+	<!-- 첨부파일 저장 -->
+	<insert id="fileWrite"
+			parameterType="BoardFileVO">
+	insert into board_upload_file(
+	    fid,
+	    bnum,
+	    fname,
+	    fsize,
+	    ftype,
+	    fdata
+	)values(
+	    board_upload_file_fid_seq.nextval,
+	    #{bnum},
+	    #{fname},
+	    #{fsize},
+	    #{ftype},
+	    #{fdata}
+	)
+	</insert>
+	
 
 
 	<select id="list" resultType="BoardVO">

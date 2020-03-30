@@ -7,6 +7,7 @@
 	<typeAlias type="com.jobs.run.member.vo.MemberVO" alias="MemberVO"/>
     <typeAlias type="com.jobs.run.board.vo.BoardCategoryVO" alias="BoardCategoryVO"/>
 	<typeAlias type="com.jobs.run.board.vo.BoardVO" alias="BoardVO"/>
+	<typeAlias type="com.jobs.run.board.vo.BoardFileVO" alias="BoardFileVO"/>
 	<typeAlias type="com.jobs.run.contract.vo.ContractVO" alias="ContractVO"/>
  </typeAliases>
 
